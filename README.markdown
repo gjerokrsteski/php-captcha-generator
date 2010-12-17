@@ -17,7 +17,7 @@ Requirements & Installation
 
 How to use it?
 --------------
-1. Create a file captcha.php and make an insatnce of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below) 
+1. Create a file captcha.php and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below) 
 2. Integrate the capture-image into you form, using HTML like this 
     <pre>
         <img src="captcha.php" border="0" /> <input  type="text" name="captcha-confirmation" value="" />
