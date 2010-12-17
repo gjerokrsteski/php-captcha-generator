@@ -19,9 +19,7 @@ How to use it?
 --------------
 1. Create a file captcha.php and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below) 
 2. Integrate the capture-image into you form, using HTML like this 
-    <pre>
-        <img src="captcha.php" border="0" /> <input  type="text" name="captcha-confirmation" value="" />
-    </pre>
+    <pre><img src="captcha.php" border="0" /> <input  type="text" name="captcha-confirmation" value="" /></pre>
 3. After sending the form-data you can check if the value of the input-field "captcha-confirmation" equals with the security-phrase from the session. So that is all.
 
 
