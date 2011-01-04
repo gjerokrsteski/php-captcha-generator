@@ -1,7 +1,7 @@
 Introduction
 ============
 
-    Creates a captcha with the PHP's GD library for your web form. Is easy to use, just check it out.
+    Creates a security-captcha-image with the PHP's GD library for your web form. Is easy to use, just check it out.
 
 Requirements & Installation
 ---------------------------
