@@ -1,10 +1,10 @@
 Introduction
 ============
 
-    Creates a captcha with the PHP's GD library for your web form. Is easy to use, just check it out.
+    Creates a security-captcha-image with the PHP's GD library for your web form. Is easy to use, just check it out.
 
 Requirements & Installation
-===========================
+---------------------------
 
     If you have the GD library (available at » http://www.libgd.org/) you will also be able to
     create and manipulate images. The format of images you are able to manipulate depend on the
@@ -13,6 +13,16 @@ Requirements & Installation
     versions greater than gd-1.6 and less than gd-2.0.28 support PNG, not GIF.
     GIF support was re-enabled in gd-2.0.28.
     Read more: http://www.php.net/manual/en/image.requirements.php
+
+
+How to use it?
+--------------
+1. Create a file captcha.php and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below) 
+2. Integrate the capture-image into you form, using HTML like this 
+    <pre>
+        <img src="captcha.php" border="0" /><input  type="text" name="captcha-confirmation" value="" />
+    </pre>
+3. After sending the form-data you can check if the value of the input-field "captcha-confirmation" equals with the security-phrase from the session. So that is all.
 
 
 Sample 1 - Easy use

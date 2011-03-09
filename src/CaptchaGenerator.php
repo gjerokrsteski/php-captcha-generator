@@ -20,9 +20,10 @@
 /**
  * CaptchaGenerator
  *
- * @category CaptchaGenerator
- * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
- * @license http://krsteski.de/new-bsd-license New BSD License
+ * @category 	CaptchaGenerator
+ * @copyright 	Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
+ * @license 	http://krsteski.de/new-bsd-license New BSD License
+ * @author  	Gjero Krsteski <gjero@krsteski.de>
  *
  * <samp>
  * try
