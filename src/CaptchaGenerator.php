@@ -109,6 +109,14 @@ class CaptchaGenerator
      */
     public function __construct($font, $image, $phraselength = 4)
     {
+	    if (false === extension_loaded('gd'))
+        {
+            throw new RuntimeException(
+                'The GD extension is required,'.
+                ' but the extension is not loaded'
+            );
+        }
+		
         $this->setFont($font);
         $this->setImage($image);
         $this->setPhraselength($phraselength);
