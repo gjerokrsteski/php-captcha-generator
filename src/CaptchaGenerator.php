@@ -106,6 +106,7 @@ class CaptchaGenerator
      * @param string $font
      * @param string $image
      * @param integer $phraselength
+	 * @throws RuntimeException
      * @return void
      */
     public function __construct($font, $image, $phraselength = 4)
@@ -132,7 +133,7 @@ class CaptchaGenerator
      */
     public function setImage($image)
     {
-        if (false === file_exists($image))
+	    if (false === file_exists($image))
         {
             throw new InvalidArgumentException(
                 'The background-image do not exists!'
