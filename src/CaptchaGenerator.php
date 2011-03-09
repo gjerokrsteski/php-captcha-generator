@@ -20,10 +20,10 @@
 /**
  * CaptchaGenerator
  *
- * @category 	CaptchaGenerator
- * @copyright 	Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
- * @license 	http://krsteski.de/new-bsd-license New BSD License
- * @author  	Gjero Krsteski <gjero@krsteski.de>
+ * @category   CaptchaGenerator
+ * @copyright   Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
+ * @license   http://krsteski.de/new-bsd-license New BSD License
+ * @author    Gjero Krsteski <gjero@krsteski.de>
  *
  * <samp>
  * try
@@ -106,19 +106,19 @@ class CaptchaGenerator
      * @param string $font
      * @param string $image
      * @param integer $phraselength
-	 * @throws RuntimeException
+     * @throws RuntimeException
      * @return void
      */
     public function __construct($font, $image, $phraselength = 4)
     {
-	    if (false === extension_loaded('gd'))
+        if (false === extension_loaded('gd'))
         {
             throw new RuntimeException(
                 'The GD extension is required,'.
                 ' but the extension is not loaded'
             );
         }
-		
+
         $this->setFont($font);
         $this->setImage($image);
         $this->setPhraselength($phraselength);
@@ -133,7 +133,7 @@ class CaptchaGenerator
      */
     public function setImage($image)
     {
-	    if (false === file_exists($image))
+      if (false === file_exists($image))
         {
             throw new InvalidArgumentException(
                 'The background-image do not exists!'
