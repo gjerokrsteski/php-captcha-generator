@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>PHP Captcha Image Generator  by gjerokrsteski</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>PHP Captcha Image Generator </h1>
+        <h2>Creates a security-captcha-image with the PHP's GD library for your web form</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/gjerokrsteski/php-captcha-generator/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/gjerokrsteski/php-captcha-generator/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/gjerokrsteski/php-captcha-generator" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>Introduction</h1>
+
+<p>Creates a security-captcha-image with the PHP's GD library for your web form. It's easy to use - just check it out now!</p>
+
+<p><a href="https://travis-ci.org/gjerokrsteski/php-captcha-generator"><img src="https://travis-ci.org/gjerokrsteski/php-captcha-generator.png?branch=master" alt="Build Status"></a></p>
+
+<h2>Requirements &amp; Installation</h2>
+
+<p>If you have the GD library (available at » <a href="http://www.libgd.org/">http://www.libgd.org/</a>) you will also be able to create and manipulate
+images. The format of images you are able to manipulate depend on the version of GD you install, and any other
+libraries GD might need to access those image formats. Versions of GD older than gd-1.6 support GIF format images,
+and do not support PNG, where versions greater than gd-1.6 and less than gd-2.0.28 support PNG, not GIF.
+GIF support was re-enabled in gd-2.0.28. Read more: <a href="http://www.php.net/manual/en/image.requirements.php">http://www.php.net/manual/en/image.requirements.php</a></p>
+
+<h2>How to use it?</h2>
+
+<ol>
+<li><p>Create a file "captcha.php" and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below)</p></li>
+<li>
+<p>Integrate the capture-image into you form, using HTML-Tag img src="captcha.php".</p>
+
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"captcha.php"</span> <span class="na">border=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+</pre></div>
+</li>
+<li>
+<p>After sending the form-data you can check if the value of the input-field "captcha-confirmation" equals with the security-phrase from the session. So that is all an the image should look like this:</p>
+
+<p><img src="http://krsteski.de/wp-content/uploads/2010/09/captcha-samp.gif" alt="Captcha Image"></p>
+</li>
+</ol><h2>Easy use</h2>
+
+<div class="highlight"><pre><span class="k">try</span>
+<span class="p">{</span>
+  <span class="nv">$captcha</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CaptchaGenerator</span><span class="p">(</span>
+    <span class="s1">'path/to/your/font.ttf'</span><span class="p">,</span>
+    <span class="s1">'path/to/your/background-image.gif'</span><span class="p">,</span>
+    <span class="nv">$the_length_of_your_phrase</span> <span class="o">=</span> <span class="mi">4</span>
+  <span class="p">);</span>
+
+  <span class="c1">// Intervene here the phrase</span>
+  <span class="c1">// and save it into the database or at the session.</span>
+  <span class="nv">$the_captcha_phrase</span> <span class="o">=</span> <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">getPhrase</span><span class="p">();</span>
+
+  <span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">InvalidArgumentException</span> <span class="nv">$e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">print</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>Customize some options</h2>
+
+<div class="highlight"><pre><span class="c1">// ...</span>
+
+<span class="nv">$captcha</span><span class="o">-&gt;</span><span class="na">setFontcolor</span><span class="p">(</span><span class="nx">CaptchaGenerator</span><span class="o">::</span><span class="na">FONT_COLOR_BLUE</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setFontsize</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setPhraselength</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setFontxmargin</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">setFontymargin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+
+<span class="c1">// ...</span>
+</pre></div>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
