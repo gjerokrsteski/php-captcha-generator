@@ -19,3 +19,5 @@ set_include_path(
     .PATH_SEPARATOR
     .get_include_path()
 );
+
+require_once dirname(__FILE__) . '/src/CaptchaGenerator.php';

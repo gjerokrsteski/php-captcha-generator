@@ -1,184 +1,177 @@
 <?php
-require_once dirname(dirname(__FILE__)).'/src/CaptchaGenerator.php';
-
-class CaptchaGeneratorTest
-extends PHPUnit_Framework_TestCase
+class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
 {
-    protected $_captcha;
+  /**
+   * @var CaptchaGenerator
+   */
+  protected $_captcha;
 
-    protected $_phraselength = 5;
+  protected $_phraselength = 5;
 
-    /**
-     * Prepares the environment before running a test.
-     */
-    protected function setUp ()
-    {
-        parent::setUp();
+  /**
+   * Prepares the environment before running a test.
+   */
+  protected function setUp()
+  {
+    parent::setUp();
 
-        $this->_captcha = new CaptchaGenerator(
-             dirname(dirname(__FILE__)).'/tests/_drafts/arial.ttf',
-             dirname(dirname(__FILE__)).'/tests/_drafts/pwdimage.png',
-             $this->_phraselength
-        );
-    }
+    $this->_captcha = new CaptchaGenerator(
+      dirname(dirname(__FILE__)) . '/tests/_drafts/arial.ttf',
+      dirname(dirname(__FILE__)) . '/tests/_drafts/pwdimage.png',
+      $this->_phraselength
+    );
+  }
 
-    /**
-     * Cleans up the environment after running a test.
-     */
-    protected function tearDown ()
-    {
-        unset($this->_captcha);
-        parent::tearDown();
-    }
+  /**
+   * Cleans up the environment after running a test.
+   */
+  protected function tearDown()
+  {
+    unset($this->_captcha);
+    parent::tearDown();
+  }
 
-    public function testCreateNewCaptchageneratorObjectNoException()
-    {
-        $this->assertInstanceOf('CaptchaGenerator', $this->_captcha);
-    }
+  public function testCreateNewCaptchageneratorObjectNoException()
+  {
+    $this->assertInstanceOf('CaptchaGenerator', $this->_captcha);
+  }
 
-    /**
-     * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
-     * @expectedException InvalidArgumentException
-     */
-    public function testInvalidArgumentExceptionIfSetFont()
-    {
-        $this->_captcha->setFont('some/bad/font.ttf');
-    }
+  /**
+   * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
+   * @expectedException InvalidArgumentException
+   */
+  public function testInvalidArgumentExceptionIfSetFont()
+  {
+    $this->_captcha->setFont('some/bad/font.ttf');
+  }
 
-    /**
-     * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
-     * @expectedException InvalidArgumentException
-     */
-    public function testInvalidArgumentExceptionIfSetImage()
-    {
-        $this->_captcha->setImage('some/bad/image.png');
-    }
+  /**
+   * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
+   * @expectedException InvalidArgumentException
+   */
+  public function testInvalidArgumentExceptionIfSetImage()
+  {
+    $this->_captcha->setImage('some/bad/image.png');
+  }
 
-    public function isIntDataProvider()
-    {
-        return array(
-            array(1.1),
-            array('1.1'),
-            array(true),
-            array(array()),
-            array(new stdClass()),
-            array(' '),
-            array(null),
-        );
-    }
+  public function isIntDataProvider()
+  {
+    return array(
+      array( 1.1 ),
+      array( '1.1' ),
+      array( true ),
+      array( array() ),
+      array( new stdClass() ),
+      array( ' ' ),
+      array( null ),
+    );
+  }
 
-    /**
-     * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
-     * @expectedException InvalidArgumentException
-     * @provider isIntDataProvider
-     */
-    public function testInvalidArgumentExceptionIfSetFontsize($testData)
-    {
-        $this->_captcha->setFontsize($testData);
-    }
+  /**
+   * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
+   * @expectedException InvalidArgumentException
+   * @provider isIntDataProvider
+   */
+  public function testInvalidArgumentExceptionIfSetFontsize($testData)
+  {
+    $this->_captcha->setFontsize($testData);
+  }
 
-    public function testSetFontsize()
-    {
-        $this->assertInstanceOf(
-            'CaptchaGenerator',
-            $this->_captcha->setFontsize(123)
-        );
-    }
+  public function testSetFontsize()
+  {
+    $this->assertInstanceOf(
+      'CaptchaGenerator', $this->_captcha->setFontsize(123)
+    );
+  }
 
-    /**
-     * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
-     * @expectedException InvalidArgumentException
-     * @provider isIntDataProvider
-     */
-    public function testInvalidArgumentExceptionIfSetFontxmargin($testData)
-    {
-        $this->_captcha->setFontxmargin($testData);
-    }
+  /**
+   * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
+   * @expectedException InvalidArgumentException
+   * @provider isIntDataProvider
+   */
+  public function testInvalidArgumentExceptionIfSetFontxmargin($testData)
+  {
+    $this->_captcha->setFontxmargin($testData);
+  }
 
-    public function testSetFontxmargin()
-    {
-        $this->assertInstanceOf(
-            'CaptchaGenerator',
-            $this->_captcha->setFontxmargin(13)
-        );
-    }
+  public function testSetFontxmargin()
+  {
+    $this->assertInstanceOf(
+      'CaptchaGenerator', $this->_captcha->setFontxmargin(13)
+    );
+  }
 
-    /**
-     * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
-     * @expectedException InvalidArgumentException
-     * @provider isIntDataProvider
-     */
-    public function testInvalidArgumentExceptionIfSetFontymargin($testData)
-    {
-        $this->_captcha->setFontymargin($testData);
-    }
+  /**
+   * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
+   * @expectedException InvalidArgumentException
+   * @provider isIntDataProvider
+   */
+  public function testInvalidArgumentExceptionIfSetFontymargin($testData)
+  {
+    $this->_captcha->setFontymargin($testData);
+  }
 
-    public function testSetFontymargin()
-    {
-        $this->assertInstanceOf(
-            'CaptchaGenerator',
-            $this->_captcha->setFontymargin(31)
-        );
-    }
+  public function testSetFontymargin()
+  {
+    $this->assertInstanceOf(
+      'CaptchaGenerator', $this->_captcha->setFontymargin(31)
+    );
+  }
 
-    public function testSetFontcolor()
-    {
-        $this->assertInstanceOf(
-            'CaptchaGenerator',
-            $this->_captcha->setFontcolor(CaptchaGenerator::FONT_COLOR_BLUE)
-        );
-    }
+  public function testSetFontcolor()
+  {
+    $this->assertInstanceOf(
+      'CaptchaGenerator', $this->_captcha->setFontcolor(CaptchaGenerator::FONT_COLOR_BLUE)
+    );
+  }
 
-    /**
-     * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
-     * @expectedException InvalidArgumentException
-     * @provider isIntDataProvider
-     */
-    public function testInvalidArgumentExceptionIfSetPhraselength($testData)
-    {
-        $this->_captcha->setPhraselength($testData);
-    }
+  /**
+   * @depends CaptchaGeneratorTest::testCreateNewCaptchageneratorObjectNoException
+   * @expectedException InvalidArgumentException
+   * @provider isIntDataProvider
+   */
+  public function testInvalidArgumentExceptionIfSetPhraselength($testData)
+  {
+    $this->_captcha->setPhraselength($testData);
+  }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testInvalidArgumentExceptionIfSetFontymarginBiggerThanFour()
-    {
-        $this->_captcha->setPhraselength(3);
-    }
+  /**
+   * @expectedException InvalidArgumentException
+   */
+  public function testInvalidArgumentExceptionIfSetFontymarginBiggerThanFour()
+  {
+    $this->_captcha->setPhraselength(3);
+  }
 
-    public function testSetPhraselength()
-    {
-        $this->assertInstanceOf(
-            'CaptchaGenerator',
-            $this->_captcha->setPhraselength(4)
-        );
-    }
+  public function testSetPhraselength()
+  {
+    $this->assertInstanceOf(
+      'CaptchaGenerator', $this->_captcha->setPhraselength(4)
+    );
+  }
 
-    public function testGetPhraseHaseExpectedLength()
-    {
-        $this->assertEquals(
-            $this->_phraselength,
-            mb_strlen($this->_captcha->getPhrase())
-        );
-    }
+  public function testGetPhraseHaseExpectedLength()
+  {
+    $this->assertEquals(
+      $this->_phraselength, mb_strlen($this->_captcha->getPhrase())
+    );
+  }
 
-    /**
-     * @outputBuffering enabled
-     */
-    public function testRenderedImageIsSamePngImage()
-    {
-        $expectedImage = dirname(dirname(__FILE__)).'/tests/_drafts/captcha-g5ae.png';
+  /**
+   * @outputBuffering enabled
+   */
+  public function testRenderedImageIsSamePngImage()
+  {
+    $expectedImage = dirname(dirname(__FILE__)) . '/tests/_drafts/captcha-g5ae.png';
 
-        ob_start();
+    ob_start();
 
-        $this->_captcha->setPhrase('g5ae')->render();
+    $this->_captcha->setPhrase('g5ae')->render();
 
-        $actualImage = ob_get_clean();
+    $actualImage = ob_get_clean();
 
-        $this->assertSame(
-            md5(file_get_contents($expectedImage)),
-            md5($actualImage)
-        );
-    }
+    $this->assertSame(
+      md5(file_get_contents($expectedImage)), md5($actualImage)
+    );
+  }
 }
