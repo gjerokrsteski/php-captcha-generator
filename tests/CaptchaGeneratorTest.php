@@ -156,22 +156,4 @@ class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
       $this->_phraselength, mb_strlen($this->_captcha->getPhrase())
     );
   }
-
-  /**
-   * @outputBuffering enabled
-   */
-  public function testRenderedImageIsSamePngImage()
-  {
-    $expectedImage = dirname(dirname(__FILE__)) . '/tests/_drafts/captcha-g5ae.png';
-
-    ob_start();
-
-    $this->_captcha->setPhrase('g5ae')->render();
-
-    $actualImage = ob_get_clean();
-
-    $this->assertSame(
-      md5(file_get_contents($expectedImage)), md5($actualImage)
-    );
-  }
 }
