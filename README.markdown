@@ -1,6 +1,6 @@
 Introduction
 ============
-Creates a security-captcha-image with the PHP's GD library for your web form. Is easy to use, just check it out.
+Creates a security-captcha-image with the PHP's GD library for your web form. It's easy to use - just check it out now!
 
 [![Build Status](https://travis-ci.org/gjerokrsteski/php-captcha-generator.png?branch=master)](https://travis-ci.org/gjerokrsteski/php-captcha-generator)
 
