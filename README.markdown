@@ -19,7 +19,7 @@ How to use it?
 3. After sending the form-data you can check if the value of the input-field "captcha-confirmation" equals with the security-phrase from the session. So that is all.
 
 
-Sample 1 - Easy use
+Easy use
 -------------------
 ```php
 try
@@ -43,7 +43,7 @@ catch (InvalidArgumentException $e)
 ```
 
 
-Sample 2 - Customize some options
+Customize some options
 ---------------------------------
 ```php
 // ...

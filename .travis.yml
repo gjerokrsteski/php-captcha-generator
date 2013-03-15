@@ -1,9 +1,14 @@
 language: php
 
+before_install:
+    sudo apt-get install php5-gd
+
 php:
   - 5.2
   - 5.3
   - 5.4
+
+script: phpunit --testdox
 
 notifications:
   email:
