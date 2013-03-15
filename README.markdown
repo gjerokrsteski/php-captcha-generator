@@ -16,16 +16,17 @@ GIF support was re-enabled in gd-2.0.28. Read more: http://www.php.net/manual/en
 
 How to use it?
 --------------
-1. Create a file "captcha.php" and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below)
+ 1. Create a file "captcha.php" and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below)
 
-2. Integrate the capture-image into you form, using HTML-Tag img src="captcha.php".
+ 2. Integrate the capture-image into you form, using HTML-Tag img src="captcha.php".
 
-```html
-<img src="captcha.php" border="0">
-````
-3. After sending the form-data you can check if the value of the input-field "captcha-confirmation" equals with the security-phrase from the session. So that is all an the image should look like this:
+  ```html
+  <img src="captcha.php" border="0">
+  ````
 
-[![Captcha Image](http://krsteski.de/wp-content/uploads/2010/09/captcha-samp.gif)]
+ 3. After sending the form-data you can check if the value of the input-field "captcha-confirmation" equals with the security-phrase from the session. So that is all an the image should look like this:
+
+  ![Captcha Image](http://krsteski.de/wp-content/uploads/2010/09/captcha-samp.gif)
 
 
 Easy use
