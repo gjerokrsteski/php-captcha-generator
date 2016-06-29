@@ -16,7 +16,8 @@ GIF support was re-enabled in gd-2.0.28. Read more: http://www.php.net/manual/en
 
 How to use it?
 --------------
- 1. Create a file "captcha.php" and make an instance of the CaptchaGenerator in it. You have to save the security-phrase for sample at the session. (see sample below)
+ 1. Create a file "captcha.php" and make an instance of the CaptchaGenerator in it. 
+ You have to save the security-phrase for sample at the session. (see sample below)
 
  2. Integrate the capture-image into you form, using HTML-Tag img src="captcha.php".
 
