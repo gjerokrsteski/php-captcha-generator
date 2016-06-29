@@ -74,13 +74,13 @@ class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
    */
   public function testInvalidArgumentExceptionIfSetFontsize($testData)
   {
-    $this->_captcha->setFontsize($testData);
+    $this->_captcha->setFontSize($testData);
   }
 
   public function testSetFontsize()
   {
     $this->assertInstanceOf(
-      'CaptchaGenerator', $this->_captcha->setFontsize(123)
+      'CaptchaGenerator', $this->_captcha->setFontSize(123)
     );
   }
 
@@ -91,13 +91,13 @@ class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
    */
   public function testInvalidArgumentExceptionIfSetFontxmargin($testData)
   {
-    $this->_captcha->setFontxmargin($testData);
+    $this->_captcha->setFontXmargin($testData);
   }
 
   public function testSetFontxmargin()
   {
     $this->assertInstanceOf(
-      'CaptchaGenerator', $this->_captcha->setFontxmargin(13)
+      'CaptchaGenerator', $this->_captcha->setFontXmargin(13)
     );
   }
 
@@ -108,20 +108,20 @@ class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
    */
   public function testInvalidArgumentExceptionIfSetFontymargin($testData)
   {
-    $this->_captcha->setFontymargin($testData);
+    $this->_captcha->setFontYmargin($testData);
   }
 
   public function testSetFontymargin()
   {
     $this->assertInstanceOf(
-      'CaptchaGenerator', $this->_captcha->setFontymargin(31)
+      'CaptchaGenerator', $this->_captcha->setFontYmargin(31)
     );
   }
 
   public function testSetFontcolor()
   {
     $this->assertInstanceOf(
-      'CaptchaGenerator', $this->_captcha->setFontcolor(CaptchaGenerator::FONT_COLOR_BLUE)
+      'CaptchaGenerator', $this->_captcha->setFontColor(CaptchaGenerator::FONT_COLOR_BLUE)
     );
   }
 
@@ -132,7 +132,7 @@ class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
    */
   public function testInvalidArgumentExceptionIfSetPhraselength($testData)
   {
-    $this->_captcha->setPhraselength($testData);
+    $this->_captcha->setPhraseLength($testData);
   }
 
   /**
@@ -140,13 +140,13 @@ class CaptchaGeneratorTest extends PHPUnit_Framework_TestCase
    */
   public function testInvalidArgumentExceptionIfSetFontymarginBiggerThanFour()
   {
-    $this->_captcha->setPhraselength(3);
+    $this->_captcha->setPhraseLength(3);
   }
 
   public function testSetPhraselength()
   {
     $this->assertInstanceOf(
-      'CaptchaGenerator', $this->_captcha->setPhraselength(4)
+      'CaptchaGenerator', $this->_captcha->setPhraseLength(4)
     );
   }
 
